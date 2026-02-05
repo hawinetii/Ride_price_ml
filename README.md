@@ -1,15 +1,36 @@
-🚕 Ride Price Estimation System (Mini Machine Learning Project)
-Project Overview
+🚕 Ride Price Estimation System
 
-This project implements an end-to-end machine learning system to estimate ride prices based on trip and contextual factors such as distance, duration, traffic conditions, weather, and demand level. The main goal is to demonstrate the full machine learning workflow, from dataset design to model evaluation and reflection, rather than maximizing prediction accuracy.
+Mini Machine Learning Project – Semester One
 
-Problem Statement
+📌 Project Overview
 
-Ride prices are influenced by multiple interacting factors that are difficult to model using fixed rules. This project frames ride price estimation as a supervised machine learning problem, allowing models to learn pricing patterns directly from data and make predictions for unseen ride scenarios.
+This project presents an end-to-end machine learning system designed to estimate the price of a ride based on trip and contextual information. The goal of the project is not to build a perfect pricing model, but to demonstrate practical machine learning thinking: how to frame a real-world problem, design a dataset, prepare data, train models, evaluate results, and reflect on limitations and ethical concerns.
 
-Dataset Description
+The project follows the complete machine learning workflow taught in Semester One and emphasizes reasoning, interpretability, and clarity over model complexity.
 
-The dataset used in this project was synthetically created to simulate realistic ride-hailing scenarios.
+🧠 Problem Statement
+
+Ride prices are influenced by several factors such as trip distance, duration, traffic conditions, time of day, weather, and rider demand. These factors interact in non-linear and sometimes unpredictable ways, making it difficult to define accurate pricing using fixed rules.
+
+This project frames ride price estimation as a supervised machine learning problem, where a model learns pricing patterns from historical ride data and uses those patterns to estimate prices for new, unseen rides.
+
+🎯 Learning Objectives
+
+By completing this project, the following machine learning competencies are demonstrated:
+
+Framing a real-world problem as a machine learning task
+
+Designing a dataset with meaningful numerical and categorical features
+
+Applying the full machine learning workflow
+
+Building and evaluating both regression and classification models
+
+Communicating results clearly through code, visualizations, and explanations
+
+📊 Dataset Description
+
+The dataset used in this project was synthetically created to simulate realistic ride-hailing scenarios. All values were generated based on logical assumptions about how ride pricing works in practice.
 
 Number of rows: 150+
 
@@ -19,76 +40,103 @@ Feature types: Numerical and categorical
 
 Features Used and Justification
 
-distance_km: Longer distances generally increase ride cost
+distance_km
+Longer distances naturally increase fuel usage and driver time, leading to higher prices.
 
-duration_min: Time-based component of pricing
+duration_min
+Ride duration captures time-based pricing, especially in slow traffic conditions.
 
-time_of_day: Peak hours tend to have higher prices
+time_of_day
+Prices often vary depending on whether a ride occurs during peak or off-peak hours.
 
-traffic_level: Heavy traffic increases ride cost
+traffic_level
+Heavier traffic increases trip time and operational cost.
 
-weather_condition: Poor weather can raise prices due to higher risk
+weather_condition
+Poor weather conditions can increase prices due to higher risk and reduced driver availability.
 
-demand_level: High demand often leads to surge pricing
+demand_level
+High demand is commonly associated with surge pricing mechanisms.
 
-fuel_price: Higher fuel prices increase operational costs
+fuel_price
+Fuel cost affects operational expenses and indirectly influences ride pricing.
 
 Feature considered but not included:
-Price of fuel was considered as an external real-time factor but was excluded to keep the dataset simple and because it does not vary significantly per individual ride in short time periods.
+Gender was intentionally excluded because it is ethically inappropriate and should not influence ride pricing decisions.
 
-Machine Learning Workflow
+🔄 Machine Learning Workflow
 
-The notebook follows the standard machine learning pipeline taught in Semester One:
+The notebook follows a structured machine learning pipeline:
 
-Problem framing and ML justification
+Problem Framing & ML Justification
+Defining why machine learning is suitable for this task.
 
-Data exploration and visualization
+Data Exploration & Understanding
+Inspecting the dataset, checking for missing values, inconsistent labels, outliers, and visualizing raw data.
 
-Data cleaning and feature engineering
+Data Cleaning & Feature Engineering
+Handling missing values, encoding categorical variables, scaling numerical features, and treating outliers.
 
-Linear Regression for ride price prediction
+Regression Model: Ride Price Prediction
+Training a Linear Regression model to predict continuous ride prices and evaluating its performance.
 
-Logistic Regression for high-cost vs low-cost classification
+Classification Model: High-Cost vs Low-Cost Ride
+Creating a binary target and training a Logistic Regression model, evaluated using accuracy and a confusion matrix.
 
-Model evaluation and comparison
+Model Evaluation & Comparison
+Comparing regression and classification results and identifying the most influential features.
 
-Ethical and practical reflection
+Ethical & Practical Reflection
+Discussing potential risks, biases, and limitations of the system.
 
-Models Used
+🤖 Models Used
+Linear Regression
 
-Linear Regression: Predicts continuous ride prices
+Used to predict continuous ride prices. Evaluation metrics include:
 
-Logistic Regression: Classifies rides as high-cost or low-cost
+Mean Absolute Error (MAE)
 
-Evaluation metrics include Mean Absolute Error (MAE), R² score, accuracy, and confusion matrix.
+R² score
 
-Key Findings
+Logistic Regression
 
-Distance and demand level were the most influential features
+Used to classify rides as high-cost or low-cost. Evaluation metrics include:
 
-Data quality had a strong impact on both regression and classification performance
+Accuracy
 
-Even simple models can capture meaningful pricing behavior
+Confusion Matrix
 
-Ethical and Practical Considerations
+These models were chosen because they are interpretable and aligned with methods taught in Semester One.
 
-Potential unfair pricing during high-demand periods
+📈 Key Findings
 
-Risk of overpricing during emergencies or bad weather
+Distance and demand level were the most influential features affecting ride price
 
-Synthetic data limits real-world generalization
+Data quality significantly impacted model performance
 
-How to Run the Notebook
+Simple models were able to learn meaningful pricing behavior
 
-Clone the repository
+Classification results depended heavily on how the price threshold was defined
+
+⚖️ Ethical and Practical Considerations
+
+Potential unfair pricing: Surge pricing during high demand may disadvantage certain users
+
+Real-world risk: Over-reliance on automated pricing without human oversight
+
+Dataset limitation: Synthetic data may not fully capture real-world complexity
+
+▶️ How to Run the Notebook
+
+Clone this repository
 
 Open notebook/ride_price_model.ipynb in Jupyter Notebook or Google Colab
 
-Ensure required Python libraries are installed
+Ensure required Python libraries are installed (pandas, numpy, matplotlib, scikit-learn)
 
-Run the notebook cells sequentially from top to bottom
+Run all cells from top to bottom
 
-Repository Structure
+📁 Repository Structure
 ride-price-ml/
 │── data/
 │   └── rides.csv
