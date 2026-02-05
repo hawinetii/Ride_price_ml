@@ -137,6 +137,7 @@ Ensure required Python libraries are installed (pandas, numpy, matplotlib, sciki
 Run all cells from top to bottom
 
 📁 Repository Structure
+
 ride-price-ml/
 │── data/
 │   └── rides.csv
